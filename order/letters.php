@@ -4,7 +4,7 @@ require "data.php";
 foreach ($students as $key => $student_info) {
     $student_actions = $actionsForStudents[$key];
     if (!empty($student_actions)) {
-        $str = "Деканат повідомляє про такі розпорядження:\n";
+        $str = "Деканат повідомляє для {$student_info['name']} ({$student_info['email']}):\n";
 
         foreach ($student_actions as $action_key) {
             $str .= "- {$actions[$action_key]}\n";
@@ -12,6 +12,6 @@ foreach ($students as $key => $student_info) {
 
         $str .= "\n" . SIGN;
 
-        echo $str;
+        echo $str . "\n\n";
     }
 }
